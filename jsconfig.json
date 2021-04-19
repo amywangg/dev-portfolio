@@ -2,16 +2,14 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "./app",
+    "baseUrl": ".",
     "paths": {
-      "@app/*": ["/*"],
+      "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@public/*": ["styles/*"],
+      "@public/*": ["public/*"],
       "@components/*": ["components/*"],
       "@containers/*": ["containers/*"]
     },
-    "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
