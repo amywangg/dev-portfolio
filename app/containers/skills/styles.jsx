@@ -1,34 +1,48 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme, isMobile) => ({
-  introText: {
+export const useStyles = makeStyles((theme) => ({
+  section: {
     position: 'relative',
-    textAlign: 'left',
-    zIndex: 10,
+    textAlign: 'center',
+    width: '100%',
+    padding: '5vh 5vw',
   },
-  name: {
-    fontFamily: 'FjallaOne',
-    fontSize: 80,
-    fontWeight: 200,
-    letterSpacing: -5,
-    margin: '10px 7px',
+  paper: {
+    padding: theme.spacing(3),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    background: '#222c34',
+    color: 'white',
+    minHeight: '60vh',
+    scrollY: 'scroll',
   },
-  subName: {
-    fontFamily: 'FjallaOne',
-    fontSize: 30,
-    color: '#ef1e33',
-    margin: 10,
+  skillsContainer: {
+    marginTop: '3vh',
+    marginBottom: '3vh',
+  },
+  typeContainer: {
+    padding: '10px',
+    height: '40vh',
+    background: '#100C08',
   },
   subLine: {
     width: 40,
     background: '#ef1e33',
     height: 3,
-    margin: '20px 10px',
+    margin: '-10px auto',
   },
-  subText: {
-    margin: 10,
+  skillLabel: {
+    height: 40,
+    display: 'flex',
+    justifyContent: 'space-between',
   },
-  button: {
-    margin: isMobile ? '40vh 0' : '20px 0',
+  skillType: {
+    flexWrap: 1,
+  },
+  percent: {
+    color: '#ef1e33',
+    fontFamily: 'FjallaOne',
   },
 }));

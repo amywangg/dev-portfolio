@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme, isMobile) => ({
+export const useStyles = makeStyles((theme) => ({
   introCover: {
     backgroundImage: `url('images/intro-cover.jpg')`,
     filter: 'grayscale(90%)',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: isMobile ? 'cover' : 'auto',
+    backgroundSize: 'auto',
     width: '100%',
     height: '100%',
     opacity: 0.5,
@@ -14,9 +14,10 @@ export const useStyles = makeStyles((theme, isMobile) => ({
     zIndex: 0,
   },
   introText: {
-    margin: isMobile ? '20vh' : '20vh',
-    paddingTop: isMobile ? '20vh' : '40vh',
+    padding: '5rem 7vw',
+    paddingTop: '30vh',
     position: 'relative',
+    display: 'block',
     textAlign: 'left',
     zIndex: 10,
     height: '100vh',
@@ -26,7 +27,6 @@ export const useStyles = makeStyles((theme, isMobile) => ({
     fontSize: 80,
     fontWeight: 200,
     letterSpacing: -5,
-    margin: '10px 7px',
   },
   subName: {
     fontFamily: 'FjallaOne',
@@ -44,6 +44,6 @@ export const useStyles = makeStyles((theme, isMobile) => ({
     margin: 10,
   },
   button: {
-    margin: isMobile ? '40vh 0' : '20px 0',
+    margin: '20px 2px',
   },
 }));

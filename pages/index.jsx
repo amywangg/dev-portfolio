@@ -4,6 +4,7 @@ import HeaderBar from '@components/Header';
 import { withUserAgent } from 'next-useragent';
 import IntroSection from '@containers/intro';
 import SkillSection from '@containers/skills';
+import MobileSkillSection from '@containers/skills/mobile';
 
 Home.getInitialProps = async (ctx) => {
   let isMobile = Boolean(
@@ -24,7 +25,11 @@ function Home({ isMobile }) {
       <main className={styles.main}>
         <HeaderBar />
         <IntroSection isMobile={isMobile} />
-        <SkillSection isMobile={isMobile} />
+        {isMobile ? (
+          <MobileSkillSection />
+        ) : (
+          <SkillSection isMobile={isMobile} />
+        )}
       </main>
     </div>
   );

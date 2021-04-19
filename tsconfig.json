@@ -9,7 +9,8 @@
       "@styles/*": ["styles/*"],
       "@public/*": ["styles/*"],
       "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"]
+      "@containers/*": ["containers/*"],
+      "@design/*": ["design/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
