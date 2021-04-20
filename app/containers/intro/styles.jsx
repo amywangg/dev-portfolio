@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: 0,
   },
   introText: {
-    padding: '5rem 7vw',
+    padding: '5rem 3vw',
     paddingTop: '30vh',
     position: 'relative',
     display: 'block',

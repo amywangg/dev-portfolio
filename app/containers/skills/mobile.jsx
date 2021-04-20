@@ -9,7 +9,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ProgressBar from '@design/ProgressBar';
 import AWButton from '@design/Button';
 
-const MobileSkillSection = ({ isMobile }) => {
+const MobileSkills = ({ isMobile }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = skills.length;
@@ -79,4 +79,4 @@ const MobileSkillSection = ({ isMobile }) => {
     </div>
   );
 };
-export default MobileSkillSection;
+export default MobileSkills;

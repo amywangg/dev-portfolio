@@ -6,7 +6,7 @@ import HeadingText from '@design/HeadingText';
 import { skills } from './skills';
 import ProgressBar from '@design/ProgressBar';
 
-const SkillSection = ({ isMobile }) => {
+const Skills = ({ isMobile }) => {
   const classes = useStyles();
 
   return (
@@ -40,4 +40,4 @@ const SkillSection = ({ isMobile }) => {
     </div>
   );
 };
-export default SkillSection;
+export default Skills;

@@ -7,7 +7,7 @@
       "@app/*": ["/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@public/*": ["styles/*"],
+      "@public/*": ["../public/*"],
       "@components/*": ["components/*"],
       "@containers/*": ["containers/*"],
       "@design/*": ["design/*"]
@@ -30,7 +30,8 @@
     "**/*.tsx",
     "app/context/AppContext.jsx",
     "app/components/Header/index.jsx",
-    "app/hooks/useWindowSize.jsx"
+    "app/hooks/useWindowSize.jsx",
+    "pages/about/indexjtsx"
   ],
   "exclude": ["node_modules"]
 }

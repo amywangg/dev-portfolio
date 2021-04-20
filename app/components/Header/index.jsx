@@ -12,7 +12,9 @@ import {
 } from '@material-ui/core';
 import { useStyles } from './styles';
 
-function HideOnScroll({ trigger, children }) {
+function HideOnScroll(props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
@@ -38,13 +40,10 @@ function ScrollTop({ trigger, children }) {
 
 export default function HeaderBar() {
   const classes = useStyles();
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
+
   return (
     <React.Fragment>
-      <HideOnScroll trigger={trigger}>
+      <HideOnScroll>
         <AppBar className={classes.appBar}>
           <Toolbar disableGutters>
             <h1 className="header-title">AW.</h1>

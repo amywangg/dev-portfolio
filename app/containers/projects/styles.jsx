@@ -6,6 +6,8 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '100%',
     padding: '5vh 5vw',
+    background: 'white',
+    color: '#0e1215',
   },
   paper: {
     padding: theme.spacing(3),
@@ -13,10 +15,9 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    background: '#222c34',
+    background: '#0e1215',
     color: 'white',
-    minHeight: '60vh',
-    boxShadow: '1em 1em 2em rgba(0,0,0,.2)',
+    minHeight: '30vh',
     scrollY: 'scroll',
   },
   skillsContainer: {

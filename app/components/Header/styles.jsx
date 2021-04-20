@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
   appBar: {
     paddingTop: 20,
     paddingLeft: 20,
-    background: 'rgba(0,0,0,0.1)',
+    background: 'rgba(0,0,0,0.5)',
     boxShadow: 'none',
   },
 

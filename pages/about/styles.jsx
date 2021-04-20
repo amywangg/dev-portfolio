@@ -6,27 +6,8 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '100%',
     padding: '5vh 5vw',
-  },
-  paper: {
-    padding: theme.spacing(3),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    background: '#222c34',
+    marginTop: '10vh',
     color: 'white',
-    minHeight: '60vh',
-    boxShadow: '1em 1em 2em rgba(0,0,0,.2)',
-    scrollY: 'scroll',
-  },
-  skillsContainer: {
-    marginTop: '3vh',
-    marginBottom: '3vh',
-  },
-  typeContainer: {
-    padding: '10px',
-    height: '40vh',
-    background: '#100C08',
   },
   subLine: {
     width: 40,

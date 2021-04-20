@@ -3,7 +3,7 @@ import { Container } from '@material-ui/core';
 import { useStyles } from './styles';
 import AWButton from '@design/Button';
 
-const IntroSection = ({ isMobile }) => {
+const Intro = ({ isMobile }) => {
   const classes = useStyles();
 
   return (
@@ -48,4 +48,4 @@ const IntroSection = ({ isMobile }) => {
     </>
   );
 };
-export default IntroSection;
+export default Intro;
