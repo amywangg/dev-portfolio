@@ -8,6 +8,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ProgressBar from '@design/ProgressBar';
 import AWButton from '@design/Button';
+import SwipeableViews from 'react-swipeable-views';
 
 const MobileSkills = ({ isMobile }) => {
   const classes = useStyles();
@@ -19,6 +20,9 @@ const MobileSkills = ({ isMobile }) => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
 
   return (
     <div className={classes.section}>
@@ -26,30 +30,49 @@ const MobileSkills = ({ isMobile }) => {
         <HeadingText>SKILLS</HeadingText>
         <div className={classes.subLine} />
         <p style={{ marginTop: 25, marginBottom: 25 }}>
-          A rough estimate of my skill level with 0% being no knowledge at all ,
-          50% used in practice, 100% being production ready
+          A rough estimate of my skill level with 0% being no knowledge at all,
+          100% being production ready, still looking to learn more!
         </p>
         <Paper
           style={{ height: '70vh', overflowY: 'scroll' }}
           className={classes.paper}
         >
-          <Grid item xs={12}>
-            <h4 style={{ fontSize: 20 }} className={classes.skillType}>
-              {skills[activeStep].type}
-            </h4>
-            {skills[activeStep].skills.map((item) => (
-              <div style={{ display: 'block', marginBottom: 15 }}>
-                <div className={classes.skillLabel}>
-                  <p>{item.name.toUpperCase()}</p>
-                  <p className={classes.percent}>{item.percent}%</p>
-                </div>
-                <ProgressBar key={item.name} completed={item.percent} />
+          <SwipeableViews
+            axis="x"
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+          >
+            {skills.map((skill, index) => (
+              <div key={`flip-${skill.type}`}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <Grid item xs={12}>
+                    <h4 style={{ fontSize: 20 }} className={classes.skillType}>
+                      {skill.type}
+                    </h4>
+                    {skill.skills.map((item) => (
+                      <div
+                        key={`paper-${item.name}`}
+                        style={{ display: 'block', marginBottom: 15 }}
+                      >
+                        <div className={classes.skillLabel}>
+                          <p>{item.name.toUpperCase()}</p>
+                          <p className={classes.percent}>{item.percent}%</p>
+                        </div>
+                        <ProgressBar key={item.name} completed={item.percent} />
+                      </div>
+                    ))}
+                  </Grid>
+                ) : null}
               </div>
             ))}
-          </Grid>
+          </SwipeableViews>
         </Paper>
         <MobileStepper
-          style={{ background: 'none', color: 'white' }}
+          style={{
+            background: 'none',
+            color: 'white',
+          }}
           steps={maxSteps}
           position="static"
           variant="text"

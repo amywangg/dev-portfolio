@@ -38,13 +38,13 @@ function ScrollTop({ trigger, children }) {
   );
 }
 
-export default function HeaderBar() {
+export default function HeaderBar({ top }) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <HideOnScroll>
-        <AppBar className={classes.appBar}>
+        <AppBar className={top ? classes.appBar : classes.scrolledBar}>
           <Toolbar disableGutters>
             <h1 className="header-title">AW.</h1>
             <IconButton
@@ -57,11 +57,6 @@ export default function HeaderBar() {
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      {/* <ScrollTop trigger={trigger}>
-        <Fab color="primary" size="small">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop> */}
     </React.Fragment>
   );
 }

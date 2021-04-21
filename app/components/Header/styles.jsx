@@ -18,7 +18,13 @@ export const useStyles = makeStyles((theme) => ({
   appBar: {
     paddingTop: 20,
     paddingLeft: 20,
-    background: 'rgba(0,0,0,0.5)',
+    background: 'transparent',
+    boxShadow: 'none',
+  },
+  scrolledBar: {
+    paddingTop: 10,
+    paddingLeft: 20,
+    background: 'rgba(0,0,0,0.7)',
     boxShadow: 'none',
   },
 

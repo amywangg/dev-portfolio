@@ -1,45 +1,51 @@
-import React from 'react';
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Container, Grid, Paper } from '@material-ui/core';
 import { useStyles } from './styles';
-import AWButton from '@components/Button';
 import HeadingText from '@design/HeadingText';
-import { skills } from './projects';
-import ProgressBar from '@design/ProgressBar';
+import { flipState, projects } from './projects';
+import ReactCardFlip from 'react-card-flip';
 
-const Projects = ({ isMobile }) => {
+const Projects = () => {
   const classes = useStyles();
+  const [isFlipped, setIsFlipped] = useState(flipState);
+  function handleHover(name) {
+    setIsFlipped({ ...isFlipped, [name]: !isFlipped[name] });
+  }
 
   return (
     <div className={classes.section}>
       <Container className={classes.container}>
-        <HeadingText color="#0e1215">PROJECTS</HeadingText>
+        <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
         <div className={classes.subLine} />
-        <p style={{ marginTop: 25 }}>
-          A rough estimate of my skill level with 0% being no knowledge at all ,
-          50% used in practice, 100% being production ready
-          <br />
-          A rough estimate of my skill level with 0% being no knowledge at all ,
-          50% used in practice, 100% being production ready
-          <br />A rough estimate of my skill level with 0% being no knowledge at
-          all , 50% used in practice, 100% being production ready
-          <br />A rough estimate of my skill level with 0% being no knowledge at
-          all , 50% used in practice, 100% being production ready
-        </p>
         <Grid className={classes.skillsContainer} container spacing={3}>
-          {skills.map((skill) => (
-            <Grid item xs={isMobile ? 12 : 4}>
-              <Paper className={classes.paper}>
-                <h4 className={classes.skillType}>{skill.type}</h4>
-                {skill.skills.map((item) => (
-                  <div style={{ display: 'block', marginBottom: 15 }}>
-                    <div className={classes.skillLabel}>
-                      <p>{item.name.toUpperCase()}</p>
-                      <p className={classes.percent}>{item.percent}%</p>
-                    </div>
-                    <ProgressBar key={item.name} completed={item.percent} />
-                  </div>
-                ))}
-              </Paper>
+          {projects.map((project) => (
+            <Grid
+              item
+              xs={4}
+              onMouseOver={() => {
+                handleHover(project.name);
+              }}
+              onMouseOut={() => {
+                handleHover(project.name);
+              }}
+              key={project.name}
+            >
+              <ReactCardFlip
+                isFlipped={isFlipped[project.name]}
+                flipDirection="horizontal"
+              >
+                <Paper
+                  style={{ background: project.color }}
+                  className={classes.paper}
+                >
+                  <img
+                    style={{ width: project.width, marginTop: '12vw' }}
+                    alt={project.name}
+                    src={project.img}
+                  />
+                </Paper>
+                <Paper className={classes.paper}></Paper>
+              </ReactCardFlip>
             </Grid>
           ))}
         </Grid>
