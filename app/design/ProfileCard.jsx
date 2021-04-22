@@ -58,8 +58,8 @@ const ProfileCard = () => {
               color="textSecondary"
               component="p"
             >
-              I generally like to spend money on experiences and new memories
-              like concerts, festivals, and travel
+              I like making new memories by experiencing things like concerts,
+              festivals, and travel
             </Typography>
           </CardContent>
         </CardActionArea>

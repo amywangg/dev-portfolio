@@ -21,7 +21,7 @@ const About = ({ isMobile }) => {
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Head>
       <main className={styles.main}>
-        <HeaderBar />
+        <HeaderBar top />
         <div className={classes.section}>
           <Container className={classes.container}>
             <HeadingText color="white">A BIT MORE ABOUT ME</HeadingText>

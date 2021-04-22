@@ -1,16 +1,15 @@
-import React from 'react';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import React, { useState } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import {
   IconButton,
-  Zoom,
   Slide,
   useScrollTrigger,
   Toolbar,
   AppBar,
-  Fab,
 } from '@material-ui/core';
 import { useStyles } from './styles';
+import Link from 'next/link';
+import Fade from 'react-reveal/Fade';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -22,22 +21,6 @@ function HideOnScroll(props) {
   );
 }
 
-function ScrollTop({ trigger, children }) {
-  const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      '#back-to-top-anchor',
-    );
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-  return (
-    <Zoom in={trigger}>
-      <div onClick={handleClick}>{children}</div>
-    </Zoom>
-  );
-}
-
 export default function HeaderBar({ top }) {
   const classes = useStyles();
 
@@ -46,7 +29,13 @@ export default function HeaderBar({ top }) {
       <HideOnScroll>
         <AppBar className={top ? classes.appBar : classes.scrolledBar}>
           <Toolbar disableGutters>
-            <h1 className="header-title">AW.</h1>
+            <Link href="/">
+              <h1 className="header-title">
+                <Fade right cascade>
+                  AW.
+                </Fade>
+              </h1>
+            </Link>
             <IconButton
               className={classes.menuButton}
               color="inherit"

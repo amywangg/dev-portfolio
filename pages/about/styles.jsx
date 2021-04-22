@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '100%',
     padding: '5vh 5vw',
-    marginTop: '10vh',
+    marginTop: '5vh',
     color: 'white',
   },
   subLine: {

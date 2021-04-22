@@ -5,6 +5,7 @@ import AWButton from '@components/Button';
 import HeadingText from '@design/HeadingText';
 import { skills } from './skills';
 import ProgressBar from '@design/ProgressBar';
+import Fade from 'react-reveal/Fade';
 
 const Skills = ({ isMobile }) => {
   const classes = useStyles();
@@ -12,30 +13,36 @@ const Skills = ({ isMobile }) => {
   return (
     <div className={classes.section}>
       <Container className={classes.container}>
-        <HeadingText>SKILLS</HeadingText>
+        <Fade top>
+          <HeadingText>SKILLS</HeadingText>
+        </Fade>
         <div className={classes.subLine} />
-        <p style={{ marginTop: 25 }}>
-          A rough estimate of my skill level with 0% being no knowledge at all,
-          100% being production ready, still looking to learn more!
-        </p>
+        <Fade top delay={300}>
+          <p style={{ marginTop: 25 }}>
+            A rough estimate of my skill level with 0% being no knowledge at
+            all, 100% being production ready, still looking to learn more!
+          </p>
+        </Fade>
         <Grid className={classes.skillsContainer} container spacing={3}>
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <Grid key={`skill-${skill.type}`} item xs={isMobile ? 12 : 4}>
-              <Paper className={classes.paper}>
-                <h4 className={classes.skillType}>{skill.type}</h4>
-                {skill.skills.map((item) => (
-                  <div
-                    key={`paper-${item.name}`}
-                    style={{ display: 'block', marginBottom: 15 }}
-                  >
-                    <div className={classes.skillLabel}>
-                      <p>{item.name.toUpperCase()}</p>
-                      <p className={classes.percent}>{item.percent}%</p>
+              <Fade top delay={300 * index}>
+                <Paper className={classes.paper}>
+                  <h4 className={classes.skillType}>{skill.type}</h4>
+                  {skill.skills.map((item) => (
+                    <div
+                      key={`paper-${item.name}`}
+                      style={{ display: 'block', marginBottom: 15 }}
+                    >
+                      <div className={classes.skillLabel}>
+                        <p>{item.name.toUpperCase()}</p>
+                        <p className={classes.percent}>{item.percent}%</p>
+                      </div>
+                      <ProgressBar key={item.name} completed={item.percent} />
                     </div>
-                    <ProgressBar key={item.name} completed={item.percent} />
-                  </div>
-                ))}
-              </Paper>
+                  ))}
+                </Paper>
+              </Fade>
             </Grid>
           ))}
         </Grid>

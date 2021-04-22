@@ -76,9 +76,18 @@ const MobileProjects = () => {
                         />
                       </Paper>
                       <Paper
-                        style={{ height: '65vh' }}
-                        className={classes.paper}
-                      ></Paper>
+                        style={{
+                          background: project.flippedColor,
+                          height: '65vh',
+                        }}
+                        className={classes.flipPaper}
+                      >
+                        <h3>{project.name.toUpperCase()}</h3>
+                        <div>
+                          <p>SKILLS:</p>
+                          {project.skills}
+                        </div>
+                      </Paper>
                     </ReactCardFlip>
                   ) : null}
                 </div>

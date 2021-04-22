@@ -4,6 +4,7 @@ import { useStyles } from './styles';
 import HeadingText from '@design/HeadingText';
 import { flipState, projects } from './projects';
 import ReactCardFlip from 'react-card-flip';
+import Fade from 'react-reveal/Fade';
 
 const Projects = () => {
   const classes = useStyles();
@@ -15,10 +16,12 @@ const Projects = () => {
   return (
     <div className={classes.section}>
       <Container className={classes.container}>
-        <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
+        <Fade top>
+          <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
+        </Fade>
         <div className={classes.subLine} />
         <Grid className={classes.skillsContainer} container spacing={3}>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <Grid
               item
               xs={4}
@@ -34,17 +37,27 @@ const Projects = () => {
                 isFlipped={isFlipped[project.name]}
                 flipDirection="horizontal"
               >
+                <Fade delay={150 * index}>
+                  <Paper
+                    style={{ background: project.color }}
+                    className={classes.paper}
+                  >
+                    <img
+                      style={{ width: project.width, marginTop: '12vw' }}
+                      alt={project.name}
+                      src={project.img}
+                    />
+                  </Paper>
+                </Fade>
                 <Paper
-                  style={{ background: project.color }}
-                  className={classes.paper}
+                  style={{ background: project.flippedColor }}
+                  className={classes.flipPaper}
                 >
-                  <img
-                    style={{ width: project.width, marginTop: '12vw' }}
-                    alt={project.name}
-                    src={project.img}
-                  />
+                  <h3>{project.name.toUpperCase()}</h3>
+                  <div>
+                    <p>SKILLS: {project.skills}</p>
+                  </div>
                 </Paper>
-                <Paper className={classes.paper}></Paper>
               </ReactCardFlip>
             </Grid>
           ))}

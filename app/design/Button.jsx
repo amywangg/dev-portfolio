@@ -12,6 +12,12 @@ export const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
+  button: {
+    '&:hover': {
+      color: '#ef1e33',
+      background: 'white',
+    },
+  },
 }));
 
 const AWButton = ({
@@ -48,6 +54,10 @@ const AWButton = ({
           color: textColor || (variant === 'contained' ? 'white' : color),
           borderRadius,
           textTransform: capitalize ? 'uppercase' : 'none',
+          '&:hover': {
+            color: '#ef1e33',
+            background: 'white',
+          },
         }}
       >
         {children}
