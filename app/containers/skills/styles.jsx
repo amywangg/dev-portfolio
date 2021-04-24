@@ -16,8 +16,11 @@ export const useStyles = makeStyles((theme) => ({
     background: '#222c34',
     color: 'white',
     minHeight: '60vh',
+    maxHeight: '60vh',
     boxShadow: '1em 1em 2em rgba(0,0,0,.2)',
-    scrollY: 'scroll',
+    overflowY: 'scroll',
+    '-ms-overflow-style': 'none',
+    'scrollbar-width': 'none',
   },
   skillsContainer: {
     marginTop: '3vh',

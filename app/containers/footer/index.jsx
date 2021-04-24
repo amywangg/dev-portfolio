@@ -1,19 +1,35 @@
-import React from 'react';
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Container, Tooltip } from '@material-ui/core';
 import { useStyles } from './styles';
-import AWButton from '@components/Button';
-import HeadingText from '@design/HeadingText';
-import ProgressBar from '@design/ProgressBar';
+import { withStyles } from '@material-ui/styles';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
-import Link from 'next/link';
 import Zoom from 'react-reveal/Zoom';
 
-const Footer = ({ isMobile }) => {
+const CustomTooltip = withStyles(() => ({
+  tooltip: {
+    backgroundColor: '#222c34',
+    color: 'white',
+    fontSize: 11,
+  },
+  arrow: {
+    color: '#222c34',
+  },
+}))(Tooltip);
+
+const Footer = () => {
   const classes = useStyles();
   var d = new Date();
   var currentYear = d.getFullYear();
+  const [tooltip, setTooltip] = useState(false);
+  const onEmailClick = () => {
+    navigator.clipboard.writeText('a84wang@gmail.com');
+    setTooltip(true);
+    setTimeout(() => {
+      setTooltip(false);
+    }, 1000);
+  };
 
   return (
     <div style={{ height: '15vh' }} className={classes.section}>
@@ -29,8 +45,16 @@ const Footer = ({ isMobile }) => {
           </a>
         </Zoom>
         <Zoom down cascade delay={300}>
-          <a href="mailto:a84wang@gmail.com" rel="noopener noreferrer">
-            <EmailIcon className={classes.socialIcon} />
+          <a onClick={onEmailClick}>
+            <CustomTooltip
+              title="Copied to Clipboard!"
+              placement="right"
+              open={tooltip}
+              arrow
+              delay={200}
+            >
+              <EmailIcon className={classes.socialIcon} />
+            </CustomTooltip>
           </a>
         </Zoom>
       </Container>

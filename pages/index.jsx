@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '@styles/Home.module.css';
 import HeaderBar from '@components/Header';
-import { withUserAgent } from 'next-useragent';
 import Intro from '@containers/intro';
 import Skills from '@containers/skills';
 import MobileSkills from '@containers/skills/mobile';
@@ -12,17 +11,12 @@ import About from '../app/containers/about';
 import favicon from '@public/favicon.ico';
 import MobileProjects from '../app/containers/projects/mobile';
 import Footer from '@containers/footer';
+import { isMobile } from 'react-device-detect';
 
-Home.getInitialProps = async (ctx) => {
-  let isMobile = Boolean(
-    ctx.ua.source.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i,
-    ),
-  );
-  return { isMobile };
-};
-
-function Home({ isMobile }) {
+function Home() {
+  useEffect(() => {
+    document.body.style.overflow = 'scroll';
+  });
   const [scroll, setScroll] = useState('top');
   const handleScroll = (e) => {
     if (e.path[1].window.scrollY >= 5) {
@@ -51,10 +45,10 @@ function Home({ isMobile }) {
         {isMobile ? <MobileSkills /> : <Skills />}
         {isMobile ? <MobileProjects /> : <Projects />}
         <QuickContact isMobile={isMobile} />
-        <Footer isMobile={isMobile} />
+        <Footer />
       </main>
     </div>
   );
 }
 
-export default withUserAgent(Home);
+export default Home;

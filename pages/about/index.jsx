@@ -1,17 +1,48 @@
-import React from 'react';
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
-import { useStyles } from './styles';
-import AWButton from '@components/Button';
+import React, { useEffect } from 'react';
+import { Container } from '@material-ui/core';
 import HeadingText from '@design/HeadingText';
-import ProgressBar from '@design/ProgressBar';
 import AmyIntro from './AmyIntro';
 import Head from 'next/head';
 import styles from '@styles/Home.module.css';
 import HeaderBar from '@components/Header';
-import { withUserAgent } from 'next-useragent';
 import favicon from '@public/favicon.ico';
+import { makeStyles } from '@material-ui/core/styles';
+import { isMobile } from 'react-device-detect';
 
-const About = ({ isMobile }) => {
+const useStyles = makeStyles((theme) => ({
+  section: {
+    position: 'relative',
+    textAlign: 'center',
+    width: '100%',
+    padding: '5vh 5vw',
+    marginTop: '5vh',
+    color: 'white',
+  },
+  subLine: {
+    width: 40,
+    background: '#ef1e33',
+    height: 3,
+    margin: '-10px auto',
+  },
+  skillLabel: {
+    height: 40,
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  skillType: {
+    flexWrap: 1,
+  },
+  percent: {
+    color: '#ef1e33',
+    fontFamily: 'FjallaOne',
+  },
+}));
+
+const About = () => {
+  useEffect(() => {
+    document.body.style.overflow = 'scroll';
+  });
+
   const classes = useStyles();
 
   return (
@@ -27,8 +58,7 @@ const About = ({ isMobile }) => {
             <HeadingText color="white">A BIT MORE ABOUT ME</HeadingText>
             <div className={classes.subLine} />
             <p style={{ marginTop: 25, marginBottom: '5vh' }}>
-              A rough estimate of my skill level with 0% being no knowledge at
-              all , 50% used in practice, 100% being production ready
+              Not really work related but...
             </p>
             <AmyIntro isMobile={isMobile} />
           </Container>
@@ -38,13 +68,4 @@ const About = ({ isMobile }) => {
   );
 };
 
-About.getInitialProps = async (ctx) => {
-  let isMobile = Boolean(
-    ctx.ua.source.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i,
-    ),
-  );
-  return { isMobile };
-};
-
-export default withUserAgent(About);
+export default About;

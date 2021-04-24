@@ -20,7 +20,6 @@ export const useStyles = makeStyles((theme) => ({
     background: '#0e1215',
     color: 'white',
     height: '30vw',
-    scrollY: 'scroll',
   },
   flipPaper: {
     padding: '2% 10%',
@@ -32,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     background: '#0e1215',
     color: 'white',
     height: '30vw',
-    scrollY: 'scroll',
+    overflowY: 'scroll',
     fontFamily: 'FjallaOne',
   },
   skillsContainer: {

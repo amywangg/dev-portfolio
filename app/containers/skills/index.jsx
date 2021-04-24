@@ -29,10 +29,14 @@ const Skills = ({ isMobile }) => {
               <Fade top delay={300 * index}>
                 <Paper className={classes.paper}>
                   <h4 className={classes.skillType}>{skill.type}</h4>
-                  {skill.skills.map((item) => (
+                  {skill.skills.map((item, index) => (
                     <div
                       key={`paper-${item.name}`}
-                      style={{ display: 'block', marginBottom: 15 }}
+                      style={{
+                        display: 'block',
+                        marginBottom: 15,
+                        marginTop: index === 6 ? 50 : 0,
+                      }}
                     >
                       <div className={classes.skillLabel}>
                         <p>{item.name.toUpperCase()}</p>

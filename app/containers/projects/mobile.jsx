@@ -9,6 +9,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ReactCardFlip from 'react-card-flip';
 import SwipeableViews from 'react-swipeable-views';
 import AWButton from '@design/Button';
+import Fade from 'react-reveal/Fade';
 
 const MobileProjects = () => {
   const classes = useStyles();
@@ -34,7 +35,9 @@ const MobileProjects = () => {
       className={classes.section}
     >
       <Container className={classes.container}>
-        <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
+        <Fade top>
+          <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
+        </Fade>
         <div className={classes.subLine} />
 
         <Grid className={classes.skillsContainer} container spacing={3}>
@@ -46,53 +49,55 @@ const MobileProjects = () => {
             }}
             key={projects[activeStep].name}
           >
-            <SwipeableViews
-              axis="x"
-              index={activeStep}
-              onChangeIndex={handleStepChange}
-              enableMouseEvents
-            >
-              {projects.map((project, index) => (
-                <div key={`flip-${project.name}`}>
-                  {Math.abs(activeStep - index) <= 2 ? (
-                    <ReactCardFlip
-                      isFlipped={isFlipped[project.name]}
-                      flipDirection="horizontal"
-                    >
-                      <Paper
-                        style={{
-                          height: '65vh',
-                          background: project.color,
-                        }}
-                        className={classes.paper}
+            <Fade>
+              <SwipeableViews
+                axis="x"
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+              >
+                {projects.map((project, index) => (
+                  <div key={`flip-${project.name}`}>
+                    {Math.abs(activeStep - index) <= 2 ? (
+                      <ReactCardFlip
+                        isFlipped={isFlipped[project.name]}
+                        flipDirection="horizontal"
                       >
-                        <img
+                        <Paper
                           style={{
-                            width: project.width,
-                            marginTop: 300,
+                            height: '65vh',
+                            background: project.color,
                           }}
-                          alt={project.name}
-                          src={project.img}
-                        />
-                      </Paper>
-                      <Paper
-                        style={{
-                          background: project.flippedColor,
-                          height: '65vh',
-                        }}
-                        className={classes.flipPaper}
-                      >
-                        <h3>{project.name.toUpperCase()}</h3>
-                        <div>
-                          <p>SKILLS:</p>
-                          {project.skills}
-                        </div>
-                      </Paper>
-                    </ReactCardFlip>
-                  ) : null}
-                </div>
-              ))}
-            </SwipeableViews>
+                          className={classes.paper}
+                        >
+                          <img
+                            style={{
+                              width: project.width,
+                              marginTop: 300,
+                            }}
+                            alt={project.name}
+                            src={project.img}
+                          />
+                        </Paper>
+                        <Paper
+                          style={{
+                            background: project.flippedColor,
+                            height: '65vh',
+                          }}
+                          className={classes.flipPaper}
+                        >
+                          <h3>{project.name.toUpperCase()}</h3>
+                          <div>
+                            <p>SKILLS:</p>
+                            {project.skills}
+                          </div>
+                        </Paper>
+                      </ReactCardFlip>
+                    ) : null}
+                  </div>
+                ))}
+              </SwipeableViews>
+            </Fade>
           </Grid>
         </Grid>
 
@@ -103,24 +108,28 @@ const MobileProjects = () => {
           variant="text"
           activeStep={activeStep}
           nextButton={
-            <AWButton
-              size="small"
-              borderRadius={2}
-              onClick={handleNext}
-              disabled={activeStep === maxSteps - 1}
-            >
-              <KeyboardArrowRight />
-            </AWButton>
+            <Fade right>
+              <AWButton
+                size="small"
+                borderRadius={2}
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+              >
+                <KeyboardArrowRight />
+              </AWButton>
+            </Fade>
           }
           backButton={
-            <AWButton
-              size="small"
-              borderRadius={2}
-              onClick={handleBack}
-              disabled={activeStep === 0}
-            >
-              <KeyboardArrowLeft />
-            </AWButton>
+            <Fade left>
+              <AWButton
+                size="small"
+                borderRadius={2}
+                onClick={handleBack}
+                disabled={activeStep === 0}
+              >
+                <KeyboardArrowLeft />
+              </AWButton>
+            </Fade>
           }
         />
       </Container>
