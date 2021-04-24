@@ -9,7 +9,12 @@ export const useStyles = makeStyles((theme) => ({
     color: 'white',
     background: '#ef1e33',
   },
-
+  subLine: {
+    width: 40,
+    background: '#0e1215',
+    height: 3,
+    margin: '-10px auto',
+  },
   skillLabel: {
     height: 40,
     display: 'flex',

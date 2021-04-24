@@ -11,6 +11,7 @@ import QuickContact from '@containers/quickContact';
 import About from '../app/containers/about';
 import favicon from '@public/favicon.ico';
 import MobileProjects from '../app/containers/projects/mobile';
+import Footer from '@containers/footer';
 
 Home.getInitialProps = async (ctx) => {
   let isMobile = Boolean(
@@ -44,12 +45,13 @@ function Home({ isMobile }) {
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Head>
       <main className={styles.main}>
-        <HeaderBar top={isMobile ? false : scroll === 'top'} />
+        <HeaderBar top={scroll === 'top'} />
         <Intro isMobile={isMobile} />
         <About isMobile={isMobile} />
         {isMobile ? <MobileSkills /> : <Skills />}
         {isMobile ? <MobileProjects /> : <Projects />}
         <QuickContact isMobile={isMobile} />
+        <Footer isMobile={isMobile} />
       </main>
     </div>
   );

@@ -5,24 +5,19 @@ export const useStyles = makeStyles((theme) => ({
     position: 'relative',
     textAlign: 'center',
     width: '100%',
-    padding: '5vh 5vw',
+    padding: '0 5vw',
+    height: '10vh',
   },
-  subLine: {
-    width: 40,
-    background: '#ef1e33',
-    height: 3,
-    margin: '-10px auto',
-  },
-  skillLabel: {
-    height: 40,
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-  skillType: {
-    flexWrap: 1,
-  },
-  percent: {
+  socialIcon: {
+    background: 'white',
     color: '#ef1e33',
-    fontFamily: 'FjallaOne',
+    margin: '25px 20px',
+    height: 40,
+    width: 40,
+    padding: 6,
+    borderRadius: 5,
+    '&:hover': {
+      border: '2px solid red',
+    },
   },
 }));
