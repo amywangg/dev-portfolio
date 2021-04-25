@@ -11,12 +11,13 @@ import About from '../app/containers/about';
 import favicon from '@public/favicon.ico';
 import MobileProjects from '../app/containers/projects/mobile';
 import Footer from '@containers/footer';
-import { isMobile } from 'react-device-detect';
+import * as Parser from 'ua-parser-js';
 
-function Home() {
+function Home({ isMobile }) {
   useEffect(() => {
     document.body.style.overflow = 'scroll';
   });
+
   const [scroll, setScroll] = useState('top');
   const handleScroll = (e) => {
     if (e.path[1].window.scrollY >= 5) {
@@ -52,3 +53,21 @@ function Home() {
 }
 
 export default Home;
+
+export async function getServerSideProps({ req }) {
+  return {
+    props: {
+      isMobile: isMobile(req),
+    },
+  };
+}
+
+export function isMobile(req) {
+  let userAgent;
+  if (req) {
+    userAgent = Parser(req.headers['user-agent'] || '');
+  } else {
+    userAgent = new Parser.getResult();
+  }
+  return userAgent?.device?.type === 'mobile';
+}

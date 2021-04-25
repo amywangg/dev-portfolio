@@ -7,7 +7,7 @@ import styles from '@styles/Home.module.css';
 import HeaderBar from '@components/Header';
 import favicon from '@public/favicon.ico';
 import { makeStyles } from '@material-ui/core/styles';
-import { isMobile } from 'react-device-detect';
+import * as Parser from 'ua-parser-js';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -38,9 +38,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const About = () => {
+const About = ({ isMobile }) => {
   useEffect(() => {
     document.body.style.overflow = 'scroll';
+    console.log(isMobile);
   });
 
   const classes = useStyles();
@@ -69,3 +70,21 @@ const About = () => {
 };
 
 export default About;
+
+export async function getServerSideProps({ req }) {
+  return {
+    props: {
+      isMobile: isMobile(req),
+    },
+  };
+}
+
+export function isMobile(req) {
+  let userAgent;
+  if (req) {
+    userAgent = Parser(req.headers['user-agent'] || '');
+  } else {
+    userAgent = new Parser.getResult();
+  }
+  return userAgent?.device?.type === 'mobile';
+}

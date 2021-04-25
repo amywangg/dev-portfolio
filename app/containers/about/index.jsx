@@ -22,12 +22,19 @@ const About = ({ isMobile }) => {
         >
           <div>
             <Fade right cacscade>
-              <h1 style={{ fontFamily: 'FjallaOne' }}>
+              <h1
+                style={{
+                  fontFamily: 'FjallaOne',
+                  fontSize: isMobile ? 20 : 'default',
+                }}
+              >
                 I'm a Curious Developer
               </h1>
             </Fade>
             <Fade right cacscade delay={500}>
-              <h1 style={{ fontWeight: 500 }}>
+              <h1
+                style={{ fontWeight: 500, fontSize: isMobile ? 20 : 'default' }}
+              >
                 Looking for opportunities to <br /> learn and refine soft &
                 technical skills
               </h1>

@@ -87,9 +87,67 @@ const MobileProjects = () => {
                           className={classes.flipPaper}
                         >
                           <h3>{project.name.toUpperCase()}</h3>
-                          <div>
-                            <p>SKILLS:</p>
-                            {project.skills}
+                          <div style={{ display: 'flex', padding: 0 }}>
+                            <p>
+                              DESCRIPTION:
+                              <p
+                                style={{
+                                  fontSize: 16,
+                                  fontFamily: 'Roboto, sans-serif',
+                                }}
+                              >
+                                {project.description}
+                              </p>
+                            </p>
+                          </div>
+                          <div
+                            style={{
+                              display: 'block',
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: 'flex',
+                              }}
+                            >
+                              <p>
+                                ADDITIONAL:
+                                {project.links.map((link, index) => (
+                                  <a target="_blank" href={link.link}>
+                                    <span
+                                      style={{
+                                        marginLeft: index === 0 ? 10 : 2,
+                                        fontSize: 16,
+                                        fontFamily: 'Roboto, sans-serif',
+                                        textDecoration: 'underline',
+                                      }}
+                                    >
+                                      {link.name}
+                                      {index !== project.links.length - 1 &&
+                                        ','}
+                                    </span>
+                                  </a>
+                                ))}
+                              </p>
+                            </div>
+                            <div
+                              style={{
+                                display: 'flex',
+                              }}
+                            >
+                              <p>
+                                SKILLS:
+                                <span
+                                  style={{
+                                    marginLeft: 10,
+                                    fontSize: 16,
+                                    fontFamily: 'Roboto, sans-serif',
+                                  }}
+                                >
+                                  {project.skills}
+                                </span>
+                              </p>
+                            </div>
                           </div>
                         </Paper>
                       </ReactCardFlip>

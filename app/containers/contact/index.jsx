@@ -211,7 +211,7 @@ const ContactForm = ({ isMobile, closeDialog }) => {
                       }
                       style={{
                         borderRadius: 10,
-                        marginBottom: isMobile ? 70 : 50,
+                        marginBottom: isMobile ? 30 : 50,
                       }}
                     />
                   </Fade>

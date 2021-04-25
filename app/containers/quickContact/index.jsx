@@ -21,7 +21,7 @@ const QuickContact = ({ isMobile }) => {
 
   return (
     <div
-      style={{ height: isMobile ? '90vh' : '35vh' }}
+      style={{ height: isMobile ? '100vh' : '35vh' }}
       className={classes.section}
     >
       <Container className={classes.container}>
