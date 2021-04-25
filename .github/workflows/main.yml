@@ -21,9 +21,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm install -g yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - run: npm run build
       # configure aws credentials
       - uses: aws-actions/configure-aws-credentials@v1
         with:
