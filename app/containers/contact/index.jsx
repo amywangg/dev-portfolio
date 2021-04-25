@@ -64,7 +64,7 @@ const ContactForm = ({ isMobile, closeDialog }) => {
   return (
     <div
       style={{
-        minHeight: isMobile ? '80vh' : 650,
+        minHeight: isMobile ? '70vh' : 650,
         overflowY: isMobile ? 'scroll' : 'hidden',
       }}
     >

@@ -87,17 +87,15 @@ const MobileProjects = () => {
                           className={classes.flipPaper}
                         >
                           <h3>{project.name.toUpperCase()}</h3>
-                          <div style={{ display: 'flex', padding: 0 }}>
-                            <p>
-                              DESCRIPTION:
-                              <p
-                                style={{
-                                  fontSize: 16,
-                                  fontFamily: 'Roboto, sans-serif',
-                                }}
-                              >
-                                {project.description}
-                              </p>
+                          <div style={{ display: 'block', padding: 0 }}>
+                            <p>DESCRIPTION:</p>
+                            <p
+                              style={{
+                                fontSize: 16,
+                                fontFamily: 'Roboto, sans-serif',
+                              }}
+                            >
+                              {project.description}
                             </p>
                           </div>
                           <div
@@ -110,25 +108,26 @@ const MobileProjects = () => {
                                 display: 'flex',
                               }}
                             >
-                              <p>
-                                ADDITIONAL:
-                                {project.links.map((link, index) => (
-                                  <a target="_blank" href={link.link}>
-                                    <span
-                                      style={{
-                                        marginLeft: index === 0 ? 10 : 2,
-                                        fontSize: 16,
-                                        fontFamily: 'Roboto, sans-serif',
-                                        textDecoration: 'underline',
-                                      }}
-                                    >
-                                      {link.name}
-                                      {index !== project.links.length - 1 &&
-                                        ','}
-                                    </span>
-                                  </a>
-                                ))}
-                              </p>
+                              <p>ADDITIONAL:</p>
+                              {project.links.map((link, index) => (
+                                <a
+                                  key={link.link}
+                                  target="_blank"
+                                  href={link.link}
+                                >
+                                  <p
+                                    style={{
+                                      marginLeft: index === 0 ? 10 : 2,
+                                      fontSize: 16,
+                                      fontFamily: 'Roboto, sans-serif',
+                                      textDecoration: 'underline',
+                                    }}
+                                  >
+                                    {link.name}
+                                    {index !== project.links.length - 1 && ','}
+                                  </p>
+                                </a>
+                              ))}
                             </div>
                             <div
                               style={{
