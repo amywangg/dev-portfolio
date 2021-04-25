@@ -21,7 +21,7 @@ const About = ({ isMobile }) => {
           }}
         >
           <div>
-            <Fade right cacscade>
+            <Fade right={!isMobile} top={isMobile} cacscade>
               <h1
                 style={{
                   fontFamily: 'FjallaOne',
@@ -31,7 +31,7 @@ const About = ({ isMobile }) => {
                 I'm a Curious Developer
               </h1>
             </Fade>
-            <Fade right cacscade delay={500}>
+            <Fade right={!isMobile} top={isMobile} cacscade delay={500}>
               <h1
                 style={{ fontWeight: 500, fontSize: isMobile ? 20 : 'default' }}
               >
@@ -41,7 +41,7 @@ const About = ({ isMobile }) => {
             </Fade>
           </div>
 
-          <Fade right cacscade delay={1200}>
+          <Fade right={!isMobile} top={isMobile} cacscade delay={1200}>
             <Image
               src={softSkills}
               width={isMobile ? '300%' : '200%'}

@@ -48,7 +48,7 @@ const Intro = ({ isMobile }) => {
           className={classes.button}
         >
           <AWButton size="large">
-            <Fade right cascade>
+            <Fade right={!isMobile} top={isMobile} cascade>
               DOWNLOAD RESUME
             </Fade>
           </AWButton>

@@ -48,7 +48,7 @@ export default function HeaderBar({ top, isMobile }) {
           <Toolbar disableGutters>
             <Link href="/">
               <h1 className="header-title">
-                <Fade right cascade>
+                <Fade right={!isMobile} top={isMobile} cascade>
                   AW.
                 </Fade>
               </h1>
@@ -67,7 +67,7 @@ export default function HeaderBar({ top, isMobile }) {
                 )}
               </IconButton>
             ) : (
-              <Fade right cascade>
+              <Fade right={!isMobile} top={isMobile} cascade>
                 <IconButton
                   className={classes.menuButton}
                   color="inherit"

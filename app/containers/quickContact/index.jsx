@@ -45,17 +45,17 @@ const QuickContact = ({ isMobile }) => {
             }}
           >
             <div>
-              <Fade right cacscade>
+              <Fade right={!isMobile} top={isMobile} cacscade>
                 <h1 style={{ fontWeight: 500 }}>I'm Available</h1>
               </Fade>
-              <Fade right cacscade delay={500}>
+              <Fade right={!isMobile} top={isMobile} cacscade delay={500}>
                 <h1 style={{ fontFamily: 'FjallaOne' }}>
                   for a Fall 2021 internship
                 </h1>
               </Fade>
             </div>
             <div style={{ marginTop: '5vh' }}>
-              <Fade right cacscade delay={1200}>
+              <Fade right={!isMobile} top={isMobile} cacscade delay={1200}>
                 <AWButton
                   size="large"
                   textColor="#ef1e33"
