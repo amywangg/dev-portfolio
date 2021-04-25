@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    overflowX: 'hidden',
     '&:hover': {
       color: '#ef1e33',
     },
@@ -35,6 +36,9 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   appBar: {
+    overflowX: 'hidden',
+    overflowY: 'hidden',
+    minWidth: 0,
     transition: 'max-height 0.3s',
     paddingTop: 20,
     maxHeight: 100,
@@ -45,6 +49,9 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
   },
   scrolledBar: {
+    minWidth: 0,
+    overflowY: 'hidden',
+    overflowX: 'hidden',
     paddingTop: 10,
     paddingLeft: 20,
     maxHeight: 80,
@@ -55,6 +62,9 @@ export const useStyles = makeStyles((theme) => ({
     transition: 'max-height 0.3s',
   },
   openMenu: {
+    minWidth: 0,
+    overflowY: 'hidden',
+    overflowX: 'hidden',
     paddingTop: 20,
     maxHeight: '100vh',
     background: 'black',

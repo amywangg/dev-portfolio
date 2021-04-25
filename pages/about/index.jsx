@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
 import HeadingText from '@design/HeadingText';
 import AmyIntro from './AmyIntro';
@@ -6,8 +6,8 @@ import Head from 'next/head';
 import styles from '@styles/Home.module.css';
 import HeaderBar from '@components/Header';
 import favicon from '@public/favicon.ico';
+import { createMuiTheme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Parser from 'ua-parser-js';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -38,10 +38,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const About = ({ isMobile }) => {
+const About = () => {
+  const defaultTheme = createMuiTheme();
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
+    setIsMobile(
+      typeof window !== 'undefined' &&
+        window.innerWidth < defaultTheme.breakpoints.values.md,
+    );
     document.body.style.overflow = 'scroll';
-    console.log(isMobile);
   });
 
   const classes = useStyles();
@@ -53,7 +58,7 @@ const About = ({ isMobile }) => {
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Head>
       <main className={styles.main}>
-        <HeaderBar top />
+        <HeaderBar top isMobile={isMobile} />
         <div className={classes.section}>
           <Container className={classes.container}>
             <HeadingText color="white">A BIT MORE ABOUT ME</HeadingText>
@@ -70,21 +75,3 @@ const About = ({ isMobile }) => {
 };
 
 export default About;
-
-export async function getServerSideProps({ req }) {
-  return {
-    props: {
-      isMobile: isMobile(req),
-    },
-  };
-}
-
-export function isMobile(req) {
-  let userAgent;
-  if (req) {
-    userAgent = Parser(req.headers['user-agent'] || '');
-  } else {
-    userAgent = new Parser.getResult();
-  }
-  return userAgent?.device?.type === 'mobile';
-}

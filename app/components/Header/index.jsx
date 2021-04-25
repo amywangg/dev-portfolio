@@ -24,7 +24,7 @@ function HideOnScroll(props) {
   );
 }
 
-export default function HeaderBar({ top }) {
+export default function HeaderBar({ top, isMobile }) {
   const router = useRouter();
   const classes = useStyles();
   const [openMenu, setOpenMenu] = useState(false);
@@ -53,7 +53,7 @@ export default function HeaderBar({ top }) {
                 </Fade>
               </h1>
             </Link>
-            <Fade right cascade>
+            {isMobile ? (
               <IconButton
                 className={classes.menuButton}
                 color="inherit"
@@ -66,7 +66,22 @@ export default function HeaderBar({ top }) {
                   <MenuIcon style={{ height: 35, width: 35 }} />
                 )}
               </IconButton>
-            </Fade>
+            ) : (
+              <Fade right cascade>
+                <IconButton
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={handleOpenMenu}
+                >
+                  {openMenu ? (
+                    <CloseIcon style={{ height: 35, width: 35 }} />
+                  ) : (
+                    <MenuIcon style={{ height: 35, width: 35 }} />
+                  )}
+                </IconButton>
+              </Fade>
+            )}
           </Toolbar>
           <div className={classes.menuLinks}>
             {openMenu && (
