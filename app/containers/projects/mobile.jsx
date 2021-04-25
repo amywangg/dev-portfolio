@@ -166,28 +166,24 @@ const MobileProjects = () => {
           variant="text"
           activeStep={activeStep}
           nextButton={
-            <Fade right>
-              <AWButton
-                size="small"
-                borderRadius={2}
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                <KeyboardArrowRight />
-              </AWButton>
-            </Fade>
+            <AWButton
+              size="small"
+              borderRadius={2}
+              onClick={handleNext}
+              disabled={activeStep === maxSteps - 1}
+            >
+              <KeyboardArrowRight />
+            </AWButton>
           }
           backButton={
-            <Fade left>
-              <AWButton
-                size="small"
-                borderRadius={2}
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                <KeyboardArrowLeft />
-              </AWButton>
-            </Fade>
+            <AWButton
+              size="small"
+              borderRadius={2}
+              onClick={handleBack}
+              disabled={activeStep === 0}
+            >
+              <KeyboardArrowLeft />
+            </AWButton>
           }
         />
       </Container>

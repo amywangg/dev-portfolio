@@ -4,7 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-import { tileData } from './tileData';
+import { tileData } from './TileData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
