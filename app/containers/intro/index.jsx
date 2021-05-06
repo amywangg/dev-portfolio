@@ -27,7 +27,7 @@ const Intro = ({ isMobile }) => {
             <br />
           </h1>
 
-          <h1 className={classes.subName}>A JUNIOR WEB DEVELOPER</h1>
+          <h1 className={classes.subName}>A FULL STACK WEB DEVELOPER</h1>
         </Fade>
         <Fade top delay={800}>
           <div
@@ -48,9 +48,14 @@ const Intro = ({ isMobile }) => {
           className={classes.button}
         >
           <AWButton size="large">
-            <Fade right={!isMobile} top={isMobile} cascade>
-              DOWNLOAD RESUME
-            </Fade>
+            <a
+              target="_blank"
+              href="https://amy-wang-dev-portfolio.s3.us-east-2.amazonaws.com/Amy-Wang-F2021-final.pdf"
+            >
+              <Fade right={!isMobile} top={isMobile} cascade>
+                DOWNLOAD RESUME
+              </Fade>
+            </a>
           </AWButton>
         </div>
       </Container>

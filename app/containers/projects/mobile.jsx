@@ -37,6 +37,7 @@ const MobileProjects = () => {
       <Container className={classes.container}>
         <Fade top>
           <HeadingText color="#0e1215">RECENT WORKS</HeadingText>
+          <p style={{ marginTop: 25, marginBottom: 25 }}>Tap to learn more</p>
         </Fade>
         <div className={classes.subLine} />
 

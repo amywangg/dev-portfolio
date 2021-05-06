@@ -12,6 +12,7 @@ const CustomTooltip = withStyles(() => ({
     backgroundColor: '#222c34',
     color: 'white',
     fontSize: 11,
+    cursor: 'pointer',
   },
   arrow: {
     color: '#222c34',
@@ -45,7 +46,7 @@ const Footer = () => {
           </a>
         </Zoom>
         <Zoom down cascade delay={300}>
-          <a onClick={onEmailClick}>
+          <a style={{ cursor: 'pointer' }} onClick={onEmailClick}>
             <CustomTooltip
               title="Copied to Clipboard!"
               placement="right"
