@@ -49,115 +49,113 @@ const MobileProjects = () => {
             }}
             key={projects[activeStep].name}
           >
-            <Fade>
-              <SwipeableViews
-                axis="x"
-                index={activeStep}
-                onChangeIndex={handleStepChange}
-                enableMouseEvents
-              >
-                {projects.map((project, index) => (
-                  <div key={`flip-${project.name}`}>
-                    {Math.abs(activeStep - index) <= 2 ? (
-                      <ReactCardFlip
-                        isFlipped={isFlipped[project.name]}
-                        flipDirection="horizontal"
+            <SwipeableViews
+              axis="x"
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              enableMouseEvents
+            >
+              {projects.map((project, index) => (
+                <div key={`flip-${project.name}`}>
+                  {Math.abs(activeStep - index) <= 2 ? (
+                    <ReactCardFlip
+                      isFlipped={isFlipped[project.name]}
+                      flipDirection="horizontal"
+                    >
+                      <Paper
+                        style={{
+                          height: '65vh',
+                          background: project.color,
+                        }}
+                        className={classes.paper}
                       >
-                        <Paper
+                        <p style={{ marginTop: 25, marginBottom: 25 }}>
+                          Tap to learn more
+                        </p>
+                        <img
                           style={{
-                            height: '65vh',
-                            background: project.color,
+                            width: project.width,
+                            marginTop: 300,
                           }}
-                          className={classes.paper}
-                        >
-                          <p style={{ marginTop: 25, marginBottom: 25 }}>
-                            Tap to learn more
-                          </p>
-                          <img
+                          alt={project.name}
+                          src={project.img}
+                        />
+                      </Paper>
+                      <Paper
+                        style={{
+                          background: project.flippedColor,
+                          height: '65vh',
+                        }}
+                        className={classes.flipPaper}
+                      >
+                        <h3>{project.name.toUpperCase()}</h3>
+                        <div style={{ display: 'block', padding: 0 }}>
+                          <p>DESCRIPTION:</p>
+                          <p
                             style={{
-                              width: project.width,
-                              marginTop: 300,
+                              fontSize: 16,
+                              fontFamily: 'Roboto, sans-serif',
                             }}
-                            alt={project.name}
-                            src={project.img}
-                          />
-                        </Paper>
-                        <Paper
+                          >
+                            {project.description}
+                          </p>
+                        </div>
+                        <div
                           style={{
-                            background: project.flippedColor,
-                            height: '65vh',
+                            display: 'block',
                           }}
-                          className={classes.flipPaper}
                         >
-                          <h3>{project.name.toUpperCase()}</h3>
-                          <div style={{ display: 'block', padding: 0 }}>
-                            <p>DESCRIPTION:</p>
-                            <p
-                              style={{
-                                fontSize: 16,
-                                fontFamily: 'Roboto, sans-serif',
-                              }}
-                            >
-                              {project.description}
-                            </p>
+                          <div
+                            style={{
+                              display: 'flex',
+                            }}
+                          >
+                            <p>ADDITIONAL:</p>
+                            {project.links.map((link, index) => (
+                              <a
+                                key={link.link}
+                                target="_blank"
+                                href={link.link}
+                              >
+                                <p
+                                  style={{
+                                    marginLeft: index === 0 ? 10 : 2,
+                                    fontSize: 16,
+                                    fontFamily: 'Roboto, sans-serif',
+                                    textDecoration: 'underline',
+                                  }}
+                                >
+                                  {link.name}
+                                  {index !== project.links.length - 1 && ','}
+                                </p>
+                              </a>
+                            ))}
                           </div>
                           <div
                             style={{
-                              display: 'block',
+                              display: 'flex',
                             }}
                           >
-                            <div
-                              style={{
-                                display: 'flex',
-                              }}
-                            >
-                              <p>ADDITIONAL:</p>
-                              {project.links.map((link, index) => (
-                                <a
-                                  key={link.link}
-                                  target="_blank"
-                                  href={link.link}
-                                >
-                                  <p
-                                    style={{
-                                      marginLeft: index === 0 ? 10 : 2,
-                                      fontSize: 16,
-                                      fontFamily: 'Roboto, sans-serif',
-                                      textDecoration: 'underline',
-                                    }}
-                                  >
-                                    {link.name}
-                                    {index !== project.links.length - 1 && ','}
-                                  </p>
-                                </a>
-                              ))}
-                            </div>
-                            <div
-                              style={{
-                                display: 'flex',
-                              }}
-                            >
-                              <p>
-                                SKILLS:
-                                <span
-                                  style={{
-                                    marginLeft: 10,
-                                    fontSize: 16,
-                                    fontFamily: 'Roboto, sans-serif',
-                                  }}
-                                >
-                                  {project.skills}
-                                </span>
-                              </p>
-                            </div>
+                            <p>
+                              SKILLS:
+                              <span
+                                style={{
+                                  marginLeft: 10,
+                                  fontSize: 16,
+                                  fontFamily: 'Roboto, sans-serif',
+                                }}
+                              >
+                                {project.skills}
+                              </span>
+                            </p>
                           </div>
-                        </Paper>
-                      </ReactCardFlip>
-                    ) : null}
-                  </div>
-                ))}
-              </SwipeableViews>
-            </Fade>
+                        </div>
+                      </Paper>
+                    </ReactCardFlip>
+                  ) : null}
+                </div>
+              ))}
+            </SwipeableViews>
           </Grid>
         </Grid>
 

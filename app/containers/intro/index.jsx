@@ -39,7 +39,7 @@ const Intro = ({ isMobile }) => {
             className={classes.subText}
           >
             I have a passion for coding & bringing innovative ideas to life.
-            {!isMobile && <br />}I work mostly with the frontend but am working
+            {!isMobile && <br />} I work mostly with the frontend but am working
             towards full stack!
           </p>
         </Fade>

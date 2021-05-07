@@ -29,7 +29,7 @@ const QuickContact = ({ isMobile }) => {
           <div>
             <HeadingText>CONTACT</HeadingText>
             <h4 style={{ marginTop: 25 }}>
-              I'm Available for a Fall 2021 internship!
+              I'm available for a Fall 2021 internship!
             </h4>
             <Grid className={classes.skillsContainer} container spacing={3}>
               <ContactForm isMobile={true} />
