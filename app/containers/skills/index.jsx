@@ -35,7 +35,6 @@ const Skills = ({ isMobile }) => {
                       style={{
                         display: 'block',
                         marginBottom: 15,
-                        marginTop: index === 6 ? 50 : 0,
                       }}
                     >
                       <div className={classes.skillLabel}>
