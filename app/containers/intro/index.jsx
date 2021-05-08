@@ -40,8 +40,8 @@ const Intro = ({ isMobile }) => {
           >
             I have a passion for coding & bringing innovative ideas to life.
             {!isMobile && <br />} I have expertise in frontend but have worked
-            to build full stack solutions in a production environment and for
-            projects!
+            to build full stack {!isMobile && <br />} solutions in a production
+            environment and for projects!
           </p>
         </Fade>
         <div
