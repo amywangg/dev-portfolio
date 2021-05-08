@@ -7,20 +7,6 @@ import fidelity from '@public/images/projects/fidelity.png';
 
 export const projects = [
   {
-    name: 'oink',
-    img: oink,
-    width: '40%',
-    color: '#FDAEC8',
-    flippedColor: '#B61248',
-    description:
-      'Built out a budgeting web application paired with a Chrome extension with a group of classmates. The app tracks your Amazon purchases by using web scraping to compare your cart to your budget.',
-    links: [
-      { link: 'https://oink-dashboard.herokuapp.com/', name: 'Heroku' },
-      { link: 'https://github.com/amywangg/oink-extension', name: 'Github' },
-    ],
-    skills: 'React, Redux, Flask',
-  },
-  {
     name: 'codegem',
     img: codegem,
     color: '#3F6FF0',
@@ -47,6 +33,20 @@ export const projects = [
       { link: 'https://github.com/amywangg/resumate', name: 'GitHub' },
     ],
     skills: 'Flask, Python, NLP',
+  },
+  {
+    name: 'oink',
+    img: oink,
+    width: '40%',
+    color: '#FDAEC8',
+    flippedColor: '#B61248',
+    description:
+      'Built out a budgeting web application paired with a Chrome extension with a group of classmates. The app tracks your Amazon purchases by using web scraping to compare your cart to your budget.',
+    links: [
+      { link: 'https://oink-dashboard.herokuapp.com/', name: 'Heroku' },
+      { link: 'https://github.com/amywangg/oink-extension', name: 'Github' },
+    ],
+    skills: 'React, Redux, Flask',
   },
   {
     name: 'morningstar',
