@@ -19,8 +19,8 @@ const Skills = ({ isMobile }) => {
         <div className={classes.subLine} />
         <Fade top delay={300}>
           <p style={{ marginTop: 25 }}>
-            A rough estimate of my skill level with 0% being no knowledge at
-            all, 100% being production ready, still looking to learn more!
+            A rough estimate of my skill level with 0% being minimal working
+            knowledge and 100% being expert, still looking to learn more!
           </p>
         </Fade>
         <Grid className={classes.skillsContainer} container spacing={3}>
